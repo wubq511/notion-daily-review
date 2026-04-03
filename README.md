@@ -1,6 +1,6 @@
 # 📝 Notion Daily Knowledge Review
 
-An [Accio Work](https://www.accio.com) agent skill that turns your Notion workspace into an intelligent spaced-repetition system. Every day, it picks 2-3 knowledge points from your Notion, generates concise review summaries with deep-dive discussions, and writes them back to a dedicated Notion database.
+An agent skill that turns your Notion workspace into an intelligent spaced-repetition system. Every day, it picks 2-3 knowledge points from your Notion, generates concise review summaries with deep-dive discussions, and writes them back to a dedicated Notion database.
 
 ## Features
 
@@ -14,7 +14,7 @@ An [Accio Work](https://www.accio.com) agent skill that turns your Notion worksp
 
 ## Prerequisites
 
-- [Accio Work](https://www.accio.com) agent with MCP tool access
+- An AI agent with MCP tool access
 - A Notion workspace with knowledge content (notes, articles, book reviews, etc.)
 - Notion Integration Token ([how to get one](#notion-integration-setup))
 
@@ -23,7 +23,7 @@ An [Accio Work](https://www.accio.com) agent skill that turns your Notion worksp
 Copy the `notion-daily-review` folder into your agent's skill directory:
 
 ```
-~/.accio/accounts/<YOUR_ACCOUNT_ID>/agents/<YOUR_AGENT_DID>/agent-core/skills/
+<agent-core>/skills/
 ```
 
 The skill will be automatically detected on the next conversation.
@@ -70,11 +70,11 @@ Say any of these to your agent:
 
 ### Scheduled (Cron)
 
-Set up a cron job in Accio Work to trigger the skill automatically. Example for daily 9 PM review:
+Set up a scheduled task in your agent to trigger the skill automatically. Example for daily 9 PM review:
 
 ```
-cron → schedule: { kind: "cron", expr: "0 21 * * *", tz: "Asia/Shanghai" }
-     → payload: { kind: "agent", message: "每日回顾" }
+schedule: { kind: "cron", expr: "0 21 * * *", tz: "Asia/Shanghai" }
+message: "每日回顾"
 ```
 
 ## How It Works
@@ -111,7 +111,7 @@ cron → schedule: { kind: "cron", expr: "0 21 * * *", tz: "Asia/Shanghai" }
 
 1. Go to [https://www.notion.so/my-integrations](https://www.notion.so/my-integrations)
 2. Click **"+ New integration"**
-3. Name it (e.g., "Accio"), select your workspace, click **Submit**
+3. Name it (e.g., "My Agent"), select your workspace, click **Submit**
 4. Copy the **Internal Integration Secret** (starts with `ntn_`)
 5. In each Notion page you want the skill to access: click **"..."** → **"Connect to"** → select your integration
 
@@ -131,7 +131,7 @@ knowledge_root_pages:
 excluded_pages:
   - "2026 Planner"
   - "Habit Tracker"
-agent_memory_path: "/home/user/.accio/accounts/.../agent-core"
+agent_memory_path: "/home/user/.agent/memory"
 style_preset: "concise_deep"
 language: "zh-CN"
 ```
