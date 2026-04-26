@@ -1,6 +1,10 @@
 # 📝 Notion Daily Knowledge Review
 
+<<<<<<< HEAD
 A [Cowork](https://claude.ai) skill that turns your Notion workspace into an intelligent spaced-repetition system. Every day, it picks 2-3 knowledge points from your Notion, generates concise review summaries with deep-dive discussions, and writes them back to a dedicated Notion database.
+=======
+An agent skill that turns your Notion workspace into an intelligent spaced-repetition system. Every day, it picks 2-3 knowledge points from your Notion, generates concise review summaries with deep-dive discussions, and writes them back to a dedicated Notion database.
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 
 ## Features
 
@@ -14,8 +18,12 @@ A [Cowork](https://claude.ai) skill that turns your Notion workspace into an int
 
 ## Prerequisites
 
+<<<<<<< HEAD
 - [Claude Desktop](https://claude.ai/download) with Cowork mode enabled
 - [Notion MCP Server](https://github.com/makenotion/notion-mcp-server) connected
+=======
+- An AI agent with MCP tool access
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 - A Notion workspace with knowledge content (notes, articles, book reviews, etc.)
 - Notion Integration Token ([how to get one](#notion-integration-setup))
 
@@ -23,10 +31,16 @@ A [Cowork](https://claude.ai) skill that turns your Notion workspace into an int
 
 ### Step 1: Install the Notion MCP Server
 
+<<<<<<< HEAD
 1. Clone or download the Notion MCP Server:
    ```
    git clone https://github.com/makenotion/notion-mcp-server.git
    ```
+=======
+```
+<agent-core>/skills/
+```
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 
 2. Follow the server's README to build and run it. Typically:
    ```
@@ -101,10 +115,18 @@ Say any of these to Claude:
 
 ### Scheduled (Cron)
 
+<<<<<<< HEAD
 Use the Cowork `schedule` skill to set up automatic daily reviews:
 
 ```
 Schedule a daily task at 9 PM that runs "每日回顾"
+=======
+Set up a scheduled task in your agent to trigger the skill automatically. Example for daily 9 PM review:
+
+```
+schedule: { kind: "cron", expr: "0 21 * * *", tz: "Asia/Shanghai" }
+message: "每日回顾"
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 ```
 
 Or configure via the schedule skill directly.
@@ -131,6 +153,19 @@ Phase 4: Output
   • Send formatted review in chat
 ```
 
+<<<<<<< HEAD
+=======
+## Notion Integration Setup
+
+1. Go to [https://www.notion.so/my-integrations](https://www.notion.so/my-integrations)
+2. Click **"+ New integration"**
+3. Name it (e.g., "My Agent"), select your workspace, click **Submit**
+4. Copy the **Internal Integration Secret** (starts with `ntn_`)
+5. In each Notion page you want the skill to access: click **"..."** → **"Connect to"** → select your integration
+
+> **Important**: You must connect the integration to your top-level pages. Child pages inherit the connection automatically.
+
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 ## Configuration
 
 Configuration is stored in the memory system as `notion_daily_review_config.md`. Key settings:
@@ -144,6 +179,10 @@ knowledge_root_pages:
 excluded_pages:
   - "2026 Planner"
   - "Habit Tracker"
+<<<<<<< HEAD
+=======
+agent_memory_path: "/home/user/.agent/memory"
+>>>>>>> dfccf170cd02bec85f4179ccdd396881131f4908
 style_preset: "concise_deep"
 language: "zh-CN"
 last_reviewed_pages: []
